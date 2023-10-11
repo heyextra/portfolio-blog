@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getProjects } from '../utils/mdx-utils';
-
+import Image from 'next/image';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Layout from '../components/Layout';
@@ -24,6 +24,9 @@ export default function Index({ projects, globalData }) {
               key={project.filePath}
               className="md:first:rounded-t-lg md:last:rounded-b-lg backdrop-blur-lg bg-white dark:bg-black dark:bg-opacity-30 bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition border border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10 border-b-0 last:border-b hover:border-b hovered-sibling:border-t-0"
             >
+              <div className='w-[200px] overflow-hidden'>
+              <Image fill src={project.data.image} alt="Auto generated text for project cover photo" objectFit={"cover"} />
+              </div>
               <Link
                 as={`/projects/${project.filePath.replace(/\.mdx?$/, '')}`}
                 href={`/projects/[slug]`}
