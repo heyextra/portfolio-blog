@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 import { getProjects } from '../utils/mdx-utils';
 import Image from "next/image";
@@ -10,6 +11,8 @@ import SEO from '../components/SEO';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+
+
 
 // Pixel GIF code adapted from https://stackoverflow.com/a/33919020/266535
 const keyStr =
@@ -28,7 +31,10 @@ const rgbDataURL = (r, g, b) =>
 
 
 export default function Index({ projects, globalData }) {
+
+
   useEffect( () => {
+
     gsap.registerPlugin(ScrollTrigger)
 
     var projects = document.querySelectorAll('.project')
@@ -39,18 +45,13 @@ export default function Index({ projects, globalData }) {
              trigger: project,
              start: "-=200px top",
              end: "center +=20px",
-             markers:true,
              scrub: 1
            
              
       }})
         tl.to(project, {
-        width: "100%",
-        duration: .8        
-        }).to(project, {
-          width: "80%",
-          duration: .6        
-          })
+        width: "100%"       
+        })
     })
   },[])
 
@@ -64,7 +65,7 @@ export default function Index({ projects, globalData }) {
           {projects.map((project) => (
             <li
               key={project.filePath}
-              className="project w-[80%] mx-auto md:first:rounded-t-lg md:last:rounded-b-lg backdrop-blur-lg bg-white dark:bg-black dark:bg-opacity-30 bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 border border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10 border-b-0 last:border-b hover:border-b hovered-sibling:border-t-0"
+              className="project w-[80%] mx-auto md:first:rounded-t-lg md:last:rounded-b-lg backdrop-blur-lg "
             >
               <Link
                 as={`/projects/${project.filePath.replace(/\.mdx?$/, '')}`}
