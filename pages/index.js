@@ -27,8 +27,7 @@ export default function Index({ posts, globalData }) {
              trigger: post,
              start: "-=200px top",
              end: "center center",
-             scrub: 3,
-             markers: true
+             scrub: 3
            
              
       }})
