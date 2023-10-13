@@ -48,7 +48,7 @@ export default function Index({ posts, globalData }) {
           {posts.map((post) => (
             <li
               key={post.filePath}
-              className="post mx-auto lg:w-[80%] w-[90%] md:first:rounded-t-lg md:last:rounded-b-lg backdrop-blur-lg bg-white dark:bg-black dark:bg-opacity-30 bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition"
+              className="post mx-auto lg:w-[80%] w-[90%] md:first:rounded-t-lg md:last:rounded-b-lg backdrop-blur-lg transition"
             >
               <Link
                 as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
