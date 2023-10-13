@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Header({ name, blogTitle }) {
   return (
-    <header className="pt-20 pb-12 w-full lg:w-[80vw]">
+    <header className="pt-5 lg:pt-20 pb-12 w-full lg:w-[80vw]">
       <h1 className='text-5xl'>{name}</h1>
       <h1 className={"text-lg lg:text-2xl mb-12 "}>
           {blogTitle}

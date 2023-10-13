@@ -42,13 +42,13 @@ export default function Index({ posts, globalData }) {
     <Layout>
       <SEO title={globalData.name} description={globalData.blogTitle} />
       <Header name={globalData.name} blogTitle={globalData.blogTitle} />
-      <main className={"w-full lg:w-[80vw] px-5 "}>
+      <main className={"w-full lg:w-[80vw] "}>
 
         <ul className="w-full mx-auto">
           {posts.map((post) => (
             <li
               key={post.filePath}
-              className="post mx-auto lg:w-[80%] w-[90%] md:first:rounded-t-lg md:last:rounded-b-lg backdrop-blur-lg transition"
+              className="post mx-auto lg:w-[80%] w-[90%] md:first:rounded-t-lg md:last:rounded-b-lg backdrop-blur-lg"
             >
               <Link
                 as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
@@ -59,9 +59,9 @@ export default function Index({ posts, globalData }) {
                       {post.data.date}
                     </p>
                   )}
-                  <h2 className={"text-2xl md:text-3xl "}>{post.data.title}</h2>
+                  <h2 className={"block text-lg lg:text-2xl md:text-3xl "}>{post.data.title}</h2>
                   {post.data.description && (
-                    <p className={"mt-3 text-xl opacity-90 " }>
+                    <p className={"mt-3 text-clip inline-block w-[250px] md:w-full text-md lg:text-xl opacity-90 " }>
                       {post.data.description}
                     </p>
                   )}
