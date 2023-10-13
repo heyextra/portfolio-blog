@@ -1,4 +1,3 @@
-'use client';
 import Link from 'next/link';
 import { getProjects } from '../utils/mdx-utils';
 import Image from "next/image";
@@ -44,13 +43,14 @@ export default function Index({ projects, globalData }) {
          scrollTrigger:{
              trigger: project,
              start: "-=200px top",
-             end: "center +=20px",
-             scrub: 1
+             end: "center center",
+             scrub: 3
            
              
       }})
         tl.to(project, {
-        width: "100%"       
+        width: "100%" ,
+        ease: "power5"
         })
     })
   },[])
@@ -59,13 +59,13 @@ export default function Index({ projects, globalData }) {
     <Layout>
       <SEO title={globalData.name} description={globalData.blogTitle} />
       <Header name={globalData.name} blogTitle={globalData.blogTitle} />
-      <main className={"w-full lg:w-[80vw] px-5 "}>
+      <main className={"w-full lg:w-[80vw] "}>
 
-        <ul className="w-full project-list">
+        <ul className="w-full project-list mx-auto">
           {projects.map((project) => (
             <li
               key={project.filePath}
-              className="project w-[80%] mx-auto md:first:rounded-t-lg md:last:rounded-b-lg backdrop-blur-lg "
+              className="project w-[90%] lg:w-[80%] mx-auto md:first:rounded-t-lg md:last:rounded-b-lg m-0 backdrop-blur-lg "
             >
               <Link
                 as={`/projects/${project.filePath.replace(/\.mdx?$/, '')}`}
